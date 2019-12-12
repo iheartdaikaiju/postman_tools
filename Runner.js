@@ -23,7 +23,7 @@ function noop() { }
 function passerr(err) { if(err) {throw err;} }
 
 /** Used for generating UUIDs needed by Postman */
-const TESTURI = "http://campingworld.com/";
+const TESTURI = "http://github.com/iheartdaikaiju/postman_tools";
 
 /**
  * Run all tests with all passed in args
@@ -37,7 +37,7 @@ class Runner {
     this.datafile = datafile;
 
     /** A temporary directory used to store env files */
-    this.tmpDir = tmp.dirSync({mode: 750, prefix: 'RoadsideTest'});
+    this.tmpDir = tmp.dirSync({mode: 750, prefix: 'ExampleTest'});
 
     /** A list of prepped test environments, which launch asynchronously */
     this.environments = [];
@@ -145,7 +145,7 @@ class Environment {
     header = `
 {
   "id": "${this.testid}",
-  "name": "MemberPseudo",
+  "name": "ExampleKey",
   "values": [
 `
     var footer = `
@@ -312,7 +312,7 @@ const defaultArg = {
 }
 const argv = require.main === module
   ? yargs
-    .default('folder', 'MemberPseudo')
+    .default('folder', 'ExampleFolder')
     .default('homedir', path.join(__dirname))
     .option('verbose', {
         alias: 'v',
